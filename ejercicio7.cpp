@@ -1,29 +1,10 @@
-/*
- El usuario puede escoger de 5 opciones (de 1 a 5). Entonces pregunta por dos
- valores enteros para el calculo
-
- MENU:
- 1.- suma
- 2.- resta
- 3.- multiplicar
- 4.- dividir
- 5.- modulo
-
- Ingresa una opcion: 1
- Ingresa los dos numeros: 5 96
- Resultado: 111
-
- Continuar? y
-
- // Si el usuario ingresa 'y' a la pregunta Continuar? el usuario puede escoger otra opcion.
-
- */
-
+#include<string>
 #include <iostream>
 #include <stdexcept> //Validar en la division por 0
 using std::cout;
 using std::cin;
 using std::invalid_argument;
+using std::string;
 
 void mostrarMenu();
 int sumar(int a, int b);
@@ -43,7 +24,51 @@ void mostrarMenu() {
     cout<<"  4.- Dividir\n";
     cout<<"  6.- Modulo\n";
 }
+int sumar(int a, int b){int suma;suma=a+b;
+  return suma;}
+int restar(int a, int b){int resta;resta=a-b;
+  return resta;}
+int multiplicar(int a, int b){int producto;producto=a*b;
+  return producto;}
+float dividir(int a, int b){float dividir;dividir=a/b;
+  return dividir;
+  }
+int modulo(int a, int b){int modulo;modulo=a%b;
+  return modulo;}
+void operaciones(int a,int b,int opcion){
+  switch(opcion){
+    case 1:
+    cout<<"Resultado: "<<sumar(a,b);
+    break;
+    case 2:
+    cout<<"Resultado: "<<restar(a,b);
+    break;
+    case 3:
+    cout<<"Resultado: "<<multiplicar(a,b);
+    break;
+    case 4:
+    cout<<"Resultado: "<<dividir(a,b);
+    break;
+    case 5:
+    cout<<"Resultado: "<<modulo(a,b);
+    break;
+    default:
+    cout<<"No está en el rango de opciones.";
 
-int main() {
+  }
+
+}
+
+int main() {int a; int b; int opcion;string po;int numero;
+  do{cout<<"Ingresa una opción: ";
+  cin>>opcion;
+  cout<<"Ingresa los dos numeros separados por un espacio: ";
+  cin>>a>>b;
+  
+  operaciones(a,b,opcion);
+  cout<<"\n"<<"Continuar? ";
+  cin>>po;}while(po=="y");
+  cout<<"Gracias :)";
+
     return 0;
 }
